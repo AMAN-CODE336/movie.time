@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css"
+        integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"
+        integrity="sha512-DdX/YwF5e41Ok+AI81HI8f5/5UsoxCVT9GKYZRIzpLxb8Twz4ZwPPX+jQMwMhNQ9b5+zDEefc+dcvQoPWGNZ3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<!-- <style>
+    .active {
+        background-color: #2e7e00;
+    }
+</style> -->
+
+<body class="bg-slate-900 mt-8">
+
+
+    <nav class="bg-gray-800 p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+<div>
+                    <img src="movie logo-2-Photoroom.png" alt="" class="h-[10rem] w-[10rem]">
+                </div>
+            <div class="flex space-x-4 ">
+
+                
+
+                <div class="">
+                    <a href="#" id="home"
+                        class="text-white hover:bg-gray-600 px-4 py-2 rounded-md text-[20px] flex items-center">
+                        Home
+                    </a>
+                </div>
+                <div class="relative group">
+
+                    <a href="#" id="bollywood"
+                        class="text-white hover:bg-gray-600 px-4 py-2 rounded-md text-[20px] flex items-center">
+                        Bollywood
+
+                    </a>
+
+
+
+                </div>
+
+
+                <div class="relative group">
+
+                    <a href="#" id="hollywood"
+                        class="text-white hover:bg-gray-600 px-4 py-2 rounded-md text-[20px] flex items-center">
+                        Hollywood
+
+                    </a>
+
+
+
+                </div>
+
+                <div class="relative group">
+
+                    <a href="#" id="Webseries"
+                        class="text-white hover:bg-gray-600 px-4 py-2 rounded-md text-[20px] flex items-center">
+                        Webseries
+
+                    </a>
+
+
+
+                </div>
+
+                <div class="relative group">
+
+                    <a href="#" class="text-white hover:bg-gray-600 px-4 py-2 rounded-md text-[20px] flex items-center">
+                        Genre
+                        <i class="fa-solid fa-angle-down text-white ml-2"></i>
+                    </a>
+
+
+                    <ul
+                        class="absolute left-0 hidden mt-2 space-y-2 bg-gray-600 text-white p-6 w-60 z-50 rounded shadow-lg group-hover:block">
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Option 1</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Option 2</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Option 3</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Option 3</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Option 3</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Option 3</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Option 3</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Option 3</a></li>
+                    </ul>
+                </div>
+
+                <div class="relative group">
+
+                    <a href="#" class="text-white hover:bg-gray-600 px-4 py-2 rounded-md text-[20px] flex items-center">
+                        By Year
+                        <i class="fa-solid fa-angle-down text-white ml-2"></i>
+                    </a>
+
+                    <ul
+                        class="absolute left-0 hidden mt-2 space-y-2 bg-gray-600 text-white p-4 w-60 rounded shadow-lg group-hover:block">
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Option 1</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Option 2</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Option 3</a></li>
+                    </ul>
+                </div>
+
+
+            </div>
+            <div class="relative">
+                <input type="text" placeholder="Search Here..." id="search"
+                    class="px-4 py-2 rounded-md  text-[18px] text-gray-700 w-60 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <button class="absolute right-0 top-0 mt-2 mr-2 text-gray-500 hover:text-gray-700">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex flex-col gap-4 mt-10">
+
+        <div class="flex space-x-3 items-center justify-center ">
+
+            <button id="action"  class="bg-gray-800 text-white px-3 py-2 text-8px ">Action </button>
+            <button id="Adventure" class="bg-gray-800 text-white px-3 py-2 text-8px ">Adventure </button>
+            <button class="bg-gray-800 text-white px-3 py-2 text-8px ">cartoon </button>
+            <button class="bg-gray-800 text-white px-3 py-2 text-8px ">Animation </button>
+            <button id="comedy" class="bg-gray-800 text-white px-3 py-2 text-8px ">Comedy</button>
+            <button class="bg-gray-800 text-white px-3 py-2 text-8px ">Horror </button>
+            <button class="bg-gray-800 text-white px-3 py-2 text-8px ">Drama </button>
+            <button class="bg-gray-800 text-white px-3 py-2 text-8px ">Family</button>
+            <button class="bg-gray-800 text-white px-3 py-2 text-8px ">Fantasy </button>
+
+        </div>
+
+        <div class="flex space-x-3 items-center justify-center ">
+
+            <button class="bg-gray-800 text-white px-3 py-2 text-8px ">Fantasy </button>
+            <button class="bg-gray-800 text-white px-3 py-2 text-8px ">Romance </button>
+            <button class="bg-gray-800 text-white px-3 py-2 text-8px ">Mystery </button>
+            <button class="bg-gray-800 text-white px-3 py-2 text-8px ">Romance </button>
+            <button class="bg-gray-800 text-white px-3 py-2 text-8px ">Thriller</button>
+            <button class="bg-gray-800 text-white px-3 py-2 text-8px ">Web series</button>
+        </div>
+
+    </div>
+
+    <div id="movies" class="grid grid-cols-5 gap-10 p-20  ">
+
+
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            let movies_array = []
+            axios.get("moviedata.json")
+                .then(response => {
+                    var movies = response.data
+                    // console.log(movies)
+                    movies.forEach(movie => {
+                        movies_array.push(movie)
+                        addmovie(movie)
+                    });
+                })
+            function addmovie(movie) {
+                let myhtml = `
+                    <div class = " relative"> 
+                        <img class = " h-[50vh] w-full object-cover rounded-md hover:scale-110 transition duration-1000 "  src = ${movie.image_url}  >
+                    <p
+        class="absolute bottom-0 left-0  text-white p-4 text-[18px] font-semibold hover:underline hover:text-black">
+                    ${movie.description}
+                    </p>  `
+                $("#movies").append(myhtml)
+            }
+            $("#bollywood").click(function () {
+                let filtered_movies = movies_array.filter(movie => movie.type == ("Bollywood"))
+                // console.log(filtered_movies)
+                $("#movies").html("")
+                filtered_movies.forEach(movie => {
+                    addmovie(movie)
+
+                })
+            });
+            $("#hollywood").click(function () {
+                let filtered_movies = movies_array.filter(movie => movie.type == ("Hollywood"))
+                // console.log(filtered_movies)
+                $("#movies").html("")
+                filtered_movies.forEach(movie => {
+                    addmovie(movie)
+                })
+            })
+            $("#home").click(function () {
+                $("#movies").html("")
+                movies_array.forEach(movie => {
+                    addmovie(movie)
+                })
+            })
+            $("#Webseries").click(function () {
+                let filtered_movies = movies_array.filter(movie => movie.type == ("Webseries"))
+                // console.log(filtered_movies)
+                $("#movies").html("")
+                filtered_movies.forEach(movie => {
+                    addmovie(movie)
+                })
+            })
+
+            $("#action").click(function () {
+                let filtered_movies = movies_array.filter(movie => movie.Genre == ("Action"))
+                // console.log(filtered_movies)
+                $("#movies").html("")
+                filtered_movies.forEach(movie => {
+                    addmovie(movie)
+                })
+            })
+
+            $("#Adventure").click(function () {
+                let filtered_movies = movies_array.filter(movie => movie.Genre == ("Adventure"))
+                // console.log(filtered_movies)
+                $("#movies").html("")
+                filtered_movies.forEach(movie => {
+                    addmovie(movie)
+                })
+            })
+
+            $("#comedy").click(function () {
+                let filtered_movies = movies_array.filter(movie => movie.Genre == ("Comedy"))
+                console.log(filtered_movies) 
+                $("#movies").html("")
+                filtered_movies.forEach(movie => {
+                    addmovie(movie)
+                })
+            })
+
+            $("#search").keyup(function () {
+                let filtered_movies = movies_array.filter(movie => movie.description.toLowerCase().includes(this.value.toLowerCase()))
+                // console.log(filtered_movies)
+                $("#movies").html("")
+                filtered_movies.forEach(movie => {
+                    addmovie(movie)
+                })
+            })
+        })
+
+
+
+
+
+    </script>
+</body>
+
+</html>
